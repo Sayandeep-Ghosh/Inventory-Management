@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 
-const ProtectedRoutes = ({ children }) => {
+const ProtectedRoutes = ({ children, requiredRole }) => {
     const { user } = useAuth();
     const navigate = useNavigate();
 

@@ -12,16 +12,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Root />} />
-        <Route path="/=" element={
+        <Route path="/admin-dashboard" element={
           <ProtectedRoutes requiredRole={['admin']}>
             <Dashboard />
           </ProtectedRoutes>} >
           <Route path='index' element={<h1>Summary of dashboard</h1>} />
         </Route>
-        <Route path="/customer/dashboard" element={<h1>Customer Dashboard</h1>} />
+        <Route path="/customer-dashboard" element={<h1>Customer Dashboard</h1>} />
         <Route path="/login" element={<Login />} />
         <Route path="/unauthorized" element={<p className='font-bold text-3xl mt-20 ml-20'>Unauthorized</p>} />
-        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   )
