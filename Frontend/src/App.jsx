@@ -16,6 +16,13 @@ function App() {
           <ProtectedRoutes requiredRole={['admin']}>
             <Dashboard />
           </ProtectedRoutes>} >
+          <Route path='categories' element={<h1>Catagories</h1>} />
+          <Route path='products' element={<h1>Products</h1>} />
+          <Route path='suppliers' element={<h1>Suppliers</h1>} />
+          <Route path='orders' element={<h1>Orders</h1>} />
+          <Route path='users' element={<h1>Users</h1>} />
+          <Route path='profile' element={<h1>Profile</h1>} />
+          <Route path='settings' element={<h1>Settings</h1>} />
           <Route path='index' element={<h1>Summary of dashboard</h1>} />
         </Route>
         <Route path="/customer-dashboard" element={<h1>Customer Dashboard</h1>} />

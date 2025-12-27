@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import { Outlet } from "react-router";
 
-const dashboard = () => {
+const Dashboard = () => {
     return (
         <div className="flex">
             <Sidebar />
@@ -13,4 +13,4 @@ const dashboard = () => {
     );
 };
 
-export default dashboard;
+export default Dashboard;

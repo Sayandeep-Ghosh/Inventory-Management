@@ -4,15 +4,15 @@ import { NavLink } from "react-router";
 
 const Sidebar = () => {
     const menuItems = [
-        { title: "Dashboard", path: "/admin-dashboard", icon: <FaHome /> },
-        { title: "Categories", path: "/admin-dashboard/categories", icon: <FaTable /> },
-        { title: "Products", path: "/admin-dashboard/products", icon: <FaBox /> },
-        { title: "Suppliers", path: "/admin-dashboard/suppliers", icon: <FaTruck /> },
-        { title: "Orders", path: "/admin-dashboard/orders", icon: <FaShoppingCart /> },
-        { title: "Users", path: "/admin-dashboard/users", icon: <FaUsers /> },
-        { title: "Profile", path: "/admin-dashboard/profile", icon: <FaCog /> },
-        { title: "Settings", path: "/admin-dashboard/settings", icon: <FaCog /> },
-        { title: "Logout", path: "/admin-dashboard/logout", icon: <FaSignOutAlt /> },
+        { title: "Dashboard", path: "/admin-dashboard", icon: <FaHome />, isParent: true },
+        { title: "Categories", path: "/admin-dashboard/categories", icon: <FaTable />, isParent: false },
+        { title: "Products", path: "/admin-dashboard/products", icon: <FaBox />, isParent: false },
+        { title: "Suppliers", path: "/admin-dashboard/suppliers", icon: <FaTruck />, isParent: false },
+        { title: "Orders", path: "/admin-dashboard/orders", icon: <FaShoppingCart />, isParent: false },
+        { title: "Users", path: "/admin-dashboard/users", icon: <FaUsers />, isParent: false },
+        { title: "Profile", path: "/admin-dashboard/profile", icon: <FaCog />, isParent: false },
+        { title: "Settings", path: "/admin-dashboard/settings", icon: <FaCog />, isParent: false },
+        { title: "Logout", path: "/admin-dashboard/logout", icon: <FaSignOutAlt />, isParent: false },
     ];
 
     return (
@@ -24,10 +24,11 @@ const Sidebar = () => {
                 <ul className="space-y-2 p-2">
                     {menuItems.map((item) => (
                         <li key={item.title}>
-                            <NavLink 
-                            to={item.path} className={({ isActive }) => (isActive ? "bg-sky-500 text-white" : "") + " flex items-center p-2 rounded-md hover:bg-blue-300 w-full transition duration-200"}>
+                            <NavLink
+                                end={item.isParent}
+                                to={item.path} className={({ isActive }) => (isActive ? "bg-sky-500 text-white" : "") + " flex items-center p-2 rounded-md hover:bg-blue-300 w-full transition duration-200"}>
                                 <span className="text-xl">{item.icon}</span>
-                                <span className="hidden md:block ml-2">{item.title}</span>
+                                <span className="ml-4 hidden md:block ml-2">{item.title}</span>
                             </NavLink>
                         </li>
                     ))}
