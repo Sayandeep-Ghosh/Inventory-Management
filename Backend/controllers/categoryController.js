@@ -3,11 +3,17 @@ import Category from '../models/Category.js';
 const addCategory = async (req, res) => {
     try {
         const { categoryName, categoryDescription } = req.body;
+
+        if(!req.file) {
+            return res.status(400).json({ success: false, message: 'Category image is required' });
+        }
+
         const exsistingCategory = await Category.findOne({ categoryName });
+        
         if (exsistingCategory) {
             return res.status(400).json({ success: false, message: 'Category already exists' });
         }
-        const newCategory = new Category({ categoryName, categoryDescription });
+        const newCategory = new Category({ categoryName, categoryDescription, categoryImage: req.file.filename });
         await newCategory.save();
         res.status(201).json({ success: true, message: 'Category added successfully' });
     } catch (error) {
