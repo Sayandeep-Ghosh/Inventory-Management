@@ -4,6 +4,7 @@ import Root from './utils/Root.jsx'
 import Login from './pages/Login.jsx'
 import ProtectedRoutes from './utils/ProtectedRoutes.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import Categories from './components/Categories.jsx'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
           <ProtectedRoutes requiredRole={['admin']}>
             <Dashboard />
           </ProtectedRoutes>} >
-          <Route path='categories' element={<h1>Catagories</h1>} />
+          <Route path='categories' element={<Categories/>} />
           <Route path='products' element={<h1>Products</h1>} />
           <Route path='suppliers' element={<h1>Suppliers</h1>} />
           <Route path='orders' element={<h1>Orders</h1>} />
